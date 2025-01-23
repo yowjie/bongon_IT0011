@@ -14,7 +14,10 @@ course = input("Enter Course: ")
 
 year = input("Enter Year Level: ")
 
-print("\nFirst Name:", first_name)
+print("\n----------------------------")
+print("\tPERSON DETAILS:")
+print("----------------------------")
+print("First Name:", first_name)
 print("Last Name: ", last_name)
 print("Middle Name: ", middle_name)
 print("Birthday: ", bday)
