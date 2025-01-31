@@ -1,28 +1,32 @@
 #nested for statement 
-for i in range(1, 6):  
-    print(" " * (5 - i), end="") 
-    for j in range(1, i + 1):  
-        print(j, end="")     
+print(end="a. Nested for statement: ")
+print()
+for x in range(1, 6):  
+    print(" " * (5 - x), end="") 
+    for y in range(1, x + 1):  
+        print(y, end="")     
     print()  
 
-print(end="\n")
+print()
 
 #nested while statement
-i = 1  
-while i < 5:  
-    j = 1
-    while j <= i * 2 - 1:  
-        print(i * 2 - 1, end="")  
-        j += 1  
+print(end="b. Nested while statement: ")
+print()
+x = 1  
+while x < 5:  
+    y = 1
+    while y <= x * 2 - 1:  
+        print(x * 2 - 1, end="")  
+        y += 1  
     print()  
 
-    if i == 3:  
-        k = 1
-        while k <= 6:  
+    if x == 3:  
+        y = 1
+        while y <= 6:  
             print("6", end="")  
-            k += 1  
+            y += 1  
         print()
 
-    i += 1   
+    x += 1   
 
 
