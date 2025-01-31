@@ -16,7 +16,7 @@ for char in text:
     else:  
         count_others += 1
         
-print(end="\n")
+print()
 print("Vowels:", count_vowels)
 print("Consonant:", count_consonants)
 print("Spaces:", count_spaces)
