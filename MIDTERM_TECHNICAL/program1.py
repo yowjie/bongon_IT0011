@@ -14,5 +14,4 @@ def process_file(folder):
     except FileNotFoundError:
         print("File not found. Please check the filename and try again.")
 
-# Example usage
 process_file("MIDTERM_TECHNICAL")
