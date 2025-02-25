@@ -3,10 +3,8 @@ B = {'b', 'c', 'h', 'l', 'm', 'o'}
 C = {'c', 'd', 'f', 'h', 'i', 'j', 'k'}
 
 union_A_B = A | B
-intersection = A & B
 print("a. How many elements are there in set A and B?")
 print(len(union_A_B), union_A_B)
-print(len(intersection), intersection)
 print()
 
 B_not_A_C = B - (A | C)
