@@ -20,9 +20,9 @@ df = (A & C) - B
 c_only = A & B & C
 lmo = B - (A | C)
 
-print("h, i, j, k:", hijk)
-print("c, d, f:", cdf)
-print("b, c, h:", bch)
-print("d, f:", df)
-print("c:", c_only)
-print("l, m, o:", lmo)
+print("i.", hijk)
+print("ii.", cdf)
+print("iii.", bch)
+print("iv.", df)
+print("v.", c_only)
+print("vi.", lmo)
