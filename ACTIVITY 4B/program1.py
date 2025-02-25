@@ -2,9 +2,9 @@ A = {'a', 'b', 'c', 'd', 'f', 'g'}
 B = {'b', 'c', 'h', 'l', 'm', 'o'}
 C = {'c', 'd', 'f', 'h', 'i', 'j', 'k'}
 
-union_A_B = A | B
+union = A.union(B)
 print("a. How many elements are there in set A and B?")
-print(len(union_A_B), union_A_B)
+print(len(union), union)
 print()
 
 B_not_A_C = B - (A | C)
