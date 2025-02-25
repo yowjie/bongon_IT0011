@@ -1,0 +1,6 @@
+Last Name: Bongon
+First Name: Yeoj
+Age: 20
+Contact Number: 09995214506
+Course: BSIT-CST
+
