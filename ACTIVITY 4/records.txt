@@ -1,3 +1,0 @@
-222222,Lebron,James,23.0,56.0
-232125,James,Harden,11.0,34.0
-333333,Anthony,Davis,34.0,23.0

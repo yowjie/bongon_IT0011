@@ -1,18 +1,34 @@
+import os
+
 def calculate_final_grade(cs, me):
     return cs * 0.6 + me * 0.4
 
 
-def load_records(filename="ACTIVITY 4/records.txt"):
+def load_records():
+    filename = input("Enter filename to open: ")
     try:
         with open(filename) as file:
-            return [dict(zip(["id", "name", "cs", "me"], [p[0], (p[1], p[2]), float(p[3]), float(p[4])])) for p in (line.strip().split(",") for line in file)]
+            records = [dict(zip(["id", "name", "cs", "me"], [p[0], (p[1], p[2]), float(p[3]), float(p[4])])) for p in (line.strip().split(",") for line in file)]
+        print(f"File '{filename}' loaded successfully!")
+        return records, filename  
     except FileNotFoundError:
-        return []
+        print("File not found.")
+        return [], ""  
 
 
-def save_records(records, filename="ACTIVITY 4/records.txt"):
+def save_records(records, filename):
     with open(filename, "w") as file:
         file.writelines(f"{r['id']},{r['name'][0]},{r['name'][1]},{r['cs']},{r['me']}\n" for r in records)
+    print("Records saved!")
+
+
+def save_as_records(records):
+    filename = input("Enter filename to save as: ")
+    filepath = os.path.join("ACTIVITY 4", filename)
+    with open(filepath, "w") as file:
+        file.writelines(f"{r['id']},{r['name'][0]},{r['name'][1]},{r['cs']},{r['me']}\n" for r in records)
+    print("The file is saved.")
+    return filepath  
 
 
 def display_records(records, order_by="name"):
@@ -54,24 +70,57 @@ def add_record(records):
 
 
 def main():
-    records = load_records()
+    records = []
+    filename = "records.txt"  
     while True:
-        choice = input("\nSTUDENT RECORD MANAGEMENT:\n1. Show by Name\n2. Show by Grade\n3. Show Student Record\n4. Add Record\n5. Edit Record\n6. Delete Record\n7. Exit\nChoice: ")
-        if choice in "12":
-            display_records(records, "name" if choice == "1" else "grade")
+        choice = input("\nSTUDENT RECORD MANAGEMENT:\n"
+                       "1. Open File\n"
+                       "2. Save File\n"
+                       "3. Save As File\n"
+                       "4. Show All Students Record\n"
+                       "5. Order by Last Name\n"
+                       "6. Order by Grade\n"
+                       "7. Show Student Record\n"
+                       "8. Add Record\n"
+                       "9. Edit Record\n"
+                       "10. Delete Record\n"
+                       "11. Exit\nChoice: ")
+
+        if choice == "1":
+            records, filename = load_records()
+        elif choice == "2":
+            if filename:
+                save_records(records, filename)
+            else:
+                print("No file opened. Use 'Save As' first.")
         elif choice == "3":
-            modify_record(records, "show")
-        elif choice in "45":
-            records = add_record(records) if choice == "4" else modify_record(records, "edit")
-            save_records(records)
+            filename = save_as_records(records)  
+        elif choice == "4":
+            display_records(records)  
+        elif choice == "5":
+            display_records(records, "name")  
         elif choice == "6":
-            records = modify_record(records, "delete")
-            save_records(records)
+            display_records(records, "grade")  
         elif choice == "7":
+            modify_record(records, "show")  
+        elif choice == "8":
+            records = add_record(records)
+            if filename:
+                save_records(records, filename)  
+        elif choice == "9":
+            records = modify_record(records, "edit")
+            if filename:
+                save_records(records, filename)  
+        elif choice == "10":
+            records = modify_record(records, "delete")
+            if filename:
+                save_records(records, filename)  
+        elif choice == "11":
             print("Exiting...")
             break
         else:
             print("Invalid choice.")
+
 
 if __name__ == "__main__":
     main()
