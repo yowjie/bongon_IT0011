@@ -2,27 +2,28 @@ A = {'a', 'b', 'c', 'd', 'f', 'g'}
 B = {'b', 'c', 'h', 'l', 'm', 'o'}
 C = {'c', 'd', 'f', 'h', 'i', 'j', 'k'}
 
-union = A.union(B)
+union = A | B
+B_not_A_C = B - (A | C)
+
 print("a. How many elements are there in set A and B?")
-print(len(union), union)
+print(len(union), list(union))
 print()
 
-B_not_A_C = B - (A | C)
 print("b. How many elements are there in B that is not part of A and C?")
-print(len(B_not_A_C), B_not_A_C)
+print(len(B_not_A_C), list(B_not_A_C))
 print()
+
+hijk = sorted(C - A)  
+cdf = sorted(A & C)  
+bch = sorted((A & B) | (B & C))  
+df = sorted((A & C) - B)  
+c_only = sorted(A & B & C)  
+lmo = sorted(B - (A | C))  
 
 print("c. Show the following using set operations:")
-hijk = C - A - B
-cdf = A & C
-bch = (A & B) | (B & C)
-df = (A & C) - B
-c_only = A & B & C
-lmo = B - (A | C)
-
-print("i.", hijk)
-print("ii.", cdf)
-print("iii.", bch)
-print("iv.", df)
-print("v.", c_only)
-print("vi.", lmo)
+print("i.  ", hijk)  
+print("ii. ", cdf)    
+print("iii.", bch)    
+print("iv. ", df)    
+print("v.  ", c_only) 
+print("vi. ", lmo)    
